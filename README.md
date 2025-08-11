@@ -1,59 +1,59 @@
-# 📊 Project 1: Regime-Switching Portfolio Optimization
+# Project 1: Regime-Switching Portfolio Optimization
 
-This project applies a Hidden Markov Model (HMM) to financial return data to detect distinct **market regimes** (such as bull, bear, and neutral markets). The goal is to build a dynamic portfolio strategy that adapts asset allocation based on these regimes.
+This project explores how Hidden Markov Models (HMMs) can be used to detect different market conditions — such as calm bull markets, volatile bear markets, or something in between.  
+The idea is simple: if markets behave differently in different regimes, portfolio allocations can adapt to those conditions.
 
----
+## Project Structure
 
-## 🗂️ Project Structure
+├── README.md
+├── data
+│   ├── returns.csv
+│   └── returns_with_regimes.csv
+├── figures
+│   └── phase2_spy_regimes.png
+├── notebooks
+│   ├── archive.ipynb
+│   ├── phase1_data_preparation.ipynb
+│   ├── phase2_modeling.ipynb
+│   └── phase3_portfolio_backtest.ipynb
+└── requirements.txt
 
-Project1_RegimeSwitching/
-├── data/ # Raw and processed data files (e.g., prices.csv, returns.csv)
-├── notebooks/ # Week-by-week development notebooks
-├── figures/ # Plots for presentation or report
-├── README.md # You're reading it!
-├── requirements.txt# Python packages used in the project
+## Progress So Far
 
----
-
-## ✅ Progress by Week
-
-### Week 1: Data Collection & Preprocessing
-- Downloaded adjusted closing prices for SPY, TLT, and GLD
+**Phase 1 – Data Collection & Preprocessing (8/3/2025)**
+- Pulled adjusted close prices for SPY, TLT, and GLD using `yfinance`
 - Calculated daily log returns
-- Cleaned and visualized the time series
-- Saved data to `/data` for modeling
+- Performed quick visual checks that data looks valid
+- Saved clean data to `/data` for later use
 
-### Week 2: Regime Detection with HMM *(in progress)*
-- Use `hmmlearn` to classify time periods into market regimes
+**Phase 2 – Regime Detection with HMM (8/7/2025)**
+- Trained a 3-state Gaussian HMM on SPY returns using `hmmlearn`
+- Classified each trading day into one of three regimes
+- Saved labeled returns and a plot showing SPY returns color-coded by regime
 
-### Week 3: Strategy Simulation *(planned)*
-- Allocate weights differently per regime
-- Backtest against a static 60/40 portfolio
+**Phase 3 – Strategy Simulation (8/10/2025)**  
+- Assign different portfolio weights depending on the current regime.  
+- Compare performance against a 60/40 benchmark portfolio.  
 
-### Week 4: Final Report & Analysis *(planned)*
-- Evaluate Sharpe, drawdown, switching frequency
-- Wrap into presentation-ready results
+## Next Steps
 
----
+**Phase 4 – Final Analysis (planned)**  
+- Evaluate Sharpe ratio, drawdowns, and regime switching frequency.  
+- Package results into a clear, presentation-ready format.
 
-## 📌 Tools Used
+## Tools and Libraries
 
-- Python 3.11
-- Jupyter Notebook
-- `pandas`, `numpy`, `matplotlib`, `seaborn`
-- `yfinance` (for financial data)
-- `hmmlearn` (for Hidden Markov Models)
+- Python 3.11  
+- Jupyter Notebook, VS Code  
+- `pandas`, `numpy`, `matplotlib`, `seaborn`  
+- `yfinance` for market data  
+- `hmmlearn` for Hidden Markov Models  
 
----
+## Future Enhancements
+- Incorporate additional assets or macroeconomic indicators.
+- Include regime-probability forecasts instead of only hard classifications.
+- Build a Streamlit or Dash app for interactive visualization.
 
-## 💡 Future Ideas
-- Extend to more assets or macro indicators
-- Add forecasting logic (next-step regime probabilities)
-- Build a Dash or Streamlit dashboard for live visualization
-
----
-
-## 🧠 Author Notes
-
-This project is part of my personal quant learning journey. It's structured to reflect how a quant research team might break down, build, and backtest a strategy based on observable regime changes.
-
+## Author Notes
+I’m approaching this as more than just an HMM experiment — the aim is to practice the same workflow a quant researcher might follow: breaking the project into phases, keeping code and data organized, and tracking changes with version control.  
+This is essentially a test run — a way to build my skills and refine my process before tackling a more complex, results-driven project.
