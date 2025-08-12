@@ -57,6 +57,8 @@ The idea is simple: if markets behave differently in different regimes, portfoli
 
 ## Results
 
+![Portfolio vs SPY & 60/40 — Phase 4](figures/phase4_portfolio_vs_spy_60-40.png)
+
 By using optimized regime based allocations based on market data for 2015-2018, I was able to see significantly better performance out of this regime switching strategy than investing 60/40 SPY/TLT portfolio and simply keeping all your money in SPY during the period of 2018-current. With 5 basis points as the benchmark cost to switch 100% of each investment, this strategy beat the SP500 with a CAGR of ~ 18.3% compared to SPY's ~ 14.1% CAGR, and a Sharpe ratio of ~ 1.47 compared to SPY's .66 Sharpe ratio. Looking back, some factors that could impact these results are short term capital gains tax, slippage when changing allocations, and HMM regimes being calculated using the full dataset (although each day based allocations off of the previous day's regime).
 
 ## Author Notes
