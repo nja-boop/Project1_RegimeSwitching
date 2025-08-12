@@ -43,6 +43,8 @@ The idea is simple: if markets behave differently in different regimes, portfoli
 - Account for turnover cost during weight changes
 - Create a graph comparing optimized regime allocations to benchmarks
 
+**Completed - (8/12/2025)**
+
 ## Tools and Libraries
 
 - Python 3.11  
