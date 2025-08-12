@@ -7,6 +7,7 @@ The idea is simple: if markets behave differently in different regimes, portfoli
 
 ├── README.md
 ├── data
+│   ├── phase3_final.csv
 │   ├── returns.csv
 │   └── returns_with_regimes.csv
 ├── figures
@@ -15,10 +16,11 @@ The idea is simple: if markets behave differently in different regimes, portfoli
 │   ├── archive.ipynb
 │   ├── phase1_data_preparation.ipynb
 │   ├── phase2_modeling.ipynb
-│   └── phase3_portfolio_backtest.ipynb
+│   ├── phase3_portfolio_backtest.ipynb
+│   └── phase4_optimatization.ipynb
 └── requirements.txt
 
-## Progress So Far
+## Progress
 
 **Phase 1 – Data Collection & Preprocessing (8/3/2025)**
 - Pulled adjusted close prices for SPY, TLT, and GLD using `yfinance`
@@ -32,28 +34,30 @@ The idea is simple: if markets behave differently in different regimes, portfoli
 - Saved labeled returns and a plot showing SPY returns color-coded by regime
 
 **Phase 3 – Strategy Simulation (8/10/2025)**  
-- Assign different portfolio weights depending on the current regime.  
-- Compare performance against a 60/40 benchmark portfolio.  
+- Assign different portfolio weights depending on the current regime
+- Compare performance against a 60/40 benchmark portfolio and the SP500
 
-## Next Steps
-
-**Phase 4 – Final Analysis (planned)**  
-- Evaluate Sharpe ratio, drawdowns, and regime switching frequency.  
-- Package results into a clear, presentation-ready format.
+**Phase 4 – Final Analysis (8/11/2025)**  
+- Evaluate Sharpe ratio, drawdowns, and regime switching frequency
+- Optimize weights to maximize sharpe per regime
+- Account for turnover cost during weight changes
+- Create a graph comparing optimized regime allocations to benchmarks
 
 ## Tools and Libraries
 
 - Python 3.11  
 - Jupyter Notebook, VS Code  
-- `pandas`, `numpy`, `matplotlib`, `seaborn`  
-- `yfinance` for market data  
-- `hmmlearn` for Hidden Markov Models  
+- `pandas`, `numpy` - data manipulation and numerical computation
+- `matplotlib` - plotting equity curves and results
+- `seaborn` - quick visuals
+- `yfinance` - market data  
+- `hmmlearn` - Hidden Markov Models  
 
-## Future Enhancements
-- Incorporate additional assets or macroeconomic indicators.
-- Include regime-probability forecasts instead of only hard classifications.
-- Build a Streamlit or Dash app for interactive visualization.
+## Results
+
+By using optimized regime based allocations based on market data for 2015-2018, I was able to see significantly better performance out of this regime switching strategy than investing 60/40 SPY/TLT portfolio and simply keeping all your money in SPY during the period of 2018-current. With 5 basis points as the benchmark cost to switch 100% of each investment, this strategy beat the SP500 with a CAGR of ~ 18.3% compared to SPY's ~ 14.1% CAGR, and a Sharpe ratio of ~ 1.47 compared to SPY's .66 Sharpe ratio. Looking back, some factors that could impact these results are short term capital gains tax, slippage when changing allocations, and HMM regimes being calculated using the full dataset (although each day based allocations off of the previous day's regime).
 
 ## Author Notes
-I’m approaching this as more than just an HMM experiment — the aim is to practice the same workflow a quant researcher might follow: breaking the project into phases, keeping code and data organized, and tracking changes with version control.  
+
+I’m approaching this as more than just an HMM experiment — the aim is to practice the same workflow a quant might follow: breaking the project into phases, keeping code and data organized, and tracking changes with version control.  
 This is essentially a test run — a way to build my skills and refine my process before tackling a more complex, results-driven project.
