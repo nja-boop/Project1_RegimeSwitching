@@ -17,7 +17,7 @@ The idea is simple: if markets behave differently in different regimes, portfoli
 │   ├── phase1_data_preparation.ipynb
 │   ├── phase2_modeling.ipynb
 │   ├── phase3_portfolio_backtest.ipynb
-│   └── phase4_optimatization.ipynb
+│   └── phase4_optimization.ipynb
 └── requirements.txt
 
 ## Progress
